@@ -3,6 +3,8 @@ import React, { useEffect } from 'react'
 import { CiDark } from 'react-icons/ci'
 import { useState } from 'react'
 import { useTheme } from 'next-themes'
+import { BsSun } from 'react-icons/bs'
+
 
 
 
@@ -21,12 +23,14 @@ const ThemeComp = () => {
     return (
 
         <div>
-            {/* {
+            {
         mounted && (
-            themeMode === 'dark' ? (
-             )
-        } */}
-            <CiDark className='cursor-pointer' size={20} />
+            themeMode === 'dark' ? 
+            <BsSun onClick={()=> setTheme("light")} className='cursor-pointer' size={20} />:
+            <CiDark onClick={()=> setTheme("dark")} className='cursor-pointer' size={20} /> 
+
+        )
+        }
         </div>
     )
 }
