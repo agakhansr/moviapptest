@@ -1,6 +1,6 @@
 import React from 'react'
-import Head from '@/app/head'
 import Movies from '@/components/Movies'
+import Head from 'next/head'
 
 const Page = async ({ searchParams }) => {
   const res = await fetch(
@@ -13,16 +13,15 @@ const Page = async ({ searchParams }) => {
 
 
   return (
-    <div className="flex items-center flex-wrap gap-3">
-      <Head />
-      {
-        data?.results?.map((dt, i) => (
-          <Movies key={i} dt={dt} />
-        )
+      <div className="flex items-center flex-wrap gap-3">
+        {
+          data?.results?.map((dt, i) => (
+            <Movies key={i} dt={dt} />
+          )
 
-        )
-      }
-    </div>
+          )
+        }
+      </div>
   )
 }
 
